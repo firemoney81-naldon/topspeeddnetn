@@ -1,23 +1,496 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "KT 인터넷 이전 설치 비용은 얼마인가요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KT 인터넷 이전 설치 비용은 일반적으로 2026년 기준 11,000원에서 22,000원(부가세 포함) 사이입니다. 다만, 신규 가입 시에는 설치비 면제나 할인 혜택이 적용될 수 있으며, 구체적인 비용은 설치 환경 및 프로모션에 따라 달라질 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "KT 인터넷 이전 설치 시 혜택을 받을 수 있나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KT 인터넷을 신규로 가입하거나 기존 회선을 이전 설치하는 경우에도 다양한 혜택이 있습니다. 특히 저희 비교 사이트를 통해 신청하면 현금 지원, 상품권 지급, 결합 할인 등 파격적인 사은품 혜택을 추가로 받아보실 수 있으며, 이는 통신사 본사에서 제공하는 혜택과 다를 수 있습니다. 상세한 혜택은 전문가와 상담 후 확인하는 것이 좋습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "KT 인터넷 이전 설치 신청은 언제 해야 하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "KT 인터넷 이전 설치 신청은 이사일 기준 최소 1주일 전에 하는 것을 권장합니다. 특히 이사 성수기(봄/가을)나 금요일/주말 등 인기 있는 날짜에는 예약이 몰릴 수 있으므로 미리 신청하여 원하는 날짜에 설치받을 수 있도록 준비해야 합니다. 이사 당일 신청 시 설치 지연 가능성이 높습니다."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- 스타일: 부드럽고 다채로운 색, 타이틀 강조, 계층 구조 -->
+  <style>
+    :root {
+      --primary-color: #0070c7; /* KT Brand Blue */
+      --secondary-color: #4B86B4;
+      --accent-color: #ADCBE3;
+      --highlight-color: #E7EFF6;
+      --text-color: #2D3E50;
+      --bg-light: #F0F4F8;
+      --bg-white: #ffffff;
+      --btn-color: #FF6F61; /* Orange-Red for CTA */
+      --btn-hover: #FF4F3B;
+      --kt-dark-blue: #0A2F5E;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin:0; padding:0;
+      background-color: var(--bg-light);
+      color: var(--text-color);
+      line-height:1.7;
+      font-size:16px;
+    }
+    .container {
+      max-width: 1000px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+    header {
+      background-color: var(--kt-dark-blue);
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--bg-white);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      font-weight:700;
+    }
+    header h1 a {
+      color: var(--bg-white);
+      text-decoration: none;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      color: var(--bg-white);
+      text-align: center;
+      padding: 90px 20px;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      font-weight:700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .hero p {
+      font-size: 1.4em;
+      margin-bottom: 35px;
+    }
+    .cta-btn {
+      background-color: var(--btn-color);
+      color: var(--bg-white);
+      padding: 18px 45px;
+      font-size:1.3em;
+      font-weight: bold;
+      border:none;
+      border-radius:50px;
+      cursor:pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .cta-btn:hover {
+      background-color: var(--btn-hover);
+      transform: translateY(-3px);
+    }
+    .compare-form-box {
+      background-color: var(--bg-white);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      border: 3px solid var(--primary-color);
+      text-align: left;
+    }
+    .compare-form-box h2 {
+      color: var(--kt-dark-blue);
+      text-align: center;
+      margin-bottom: 25px;
+      font-size:2em;
+    }
+    .compare-form-box label {
+      display: block;
+      margin-bottom:8px;
+      font-weight:500;
+      color: var(--kt-dark-blue);
+    }
+    .compare-form-box input, .compare-form-box select {
+      width:100%;
+      padding:12px;
+      margin-bottom:20px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      box-sizing:border-box;
+    }
+    .compare-form-box button {
+      width:100%;
+    }
+
+    .content-section {
+      margin-top: 40px;
+      background-color: var(--bg-white);
+      padding: 60px 0;
+      border-radius:10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .content-section h2 {
+      font-size: 2.8em;
+      color: var(--primary-color);
+      margin-bottom:30px;
+      font-weight:700;
+      text-align:center;
+    }
+    .content-section h3 {
+      font-size:1.8em;
+      color: var(--kt-dark-blue);
+      margin-top:30px;
+      margin-bottom:15px;
+      border-bottom: 2px solid var(--highlight-color);
+      padding-bottom: 5px;
+    }
+    .feature-grid {
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top:30px;
+    }
+    .feature-grid .item {
+      width: calc(33.33% - 20px);
+      margin:10px;
+      padding:20px;
+      background-color: var(--highlight-color);
+      border-radius:8px;
+      text-align:center;
+      transition: all 0.3s ease-in-out;
+    }
+    .feature-grid .item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .feature-grid .item img {
+      width:80px; height:80px;
+      margin-bottom:15px;
+    }
+    .feature-grid .item p {
+      color:#555;
+    }
+    .keyword-list {
+      list-style:none;
+      padding:0;
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top:30px;
+    }
+    .keyword-list li {
+      background-color: var(--secondary-color);
+      color: var(--bg-white);
+      padding:10px 20px;
+      margin:5px;
+      border-radius:20px;
+      font-weight:500;
+      transition: background-color 0.3s;
+    }
+    .keyword-list li:hover {
+        background-color: var(--primary-color);
+    }
+    .faq-item {
+      border-bottom:1px solid #ddd;
+      padding:20px 0;
+    }
+    .faq-item h3 {
+      cursor:pointer;
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      font-size:1.4em;
+      color: var(--kt-dark-blue);
+      font-weight: 600;
+    }
+    .faq-item h3::after {
+      content: '+';
+      font-size:1.5em;
+      color: var(--primary-color);
+      transition: transform 0.3s;
+    }
+    .faq-item.active h3::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .faq-item p {
+      display: none;
+      padding-top:10px;
+      color:#555;
+      font-size:1.1em;
+    }
+    .faq-item.active p {
+      display: block;
+    }
+    footer {
+      background-color: var(--kt-dark-blue);
+      color: var(--bg-white);
+      text-align:center;
+      padding: 40px 20px;
+      font-size:0.9em;
+    }
+    footer a {
+      color: var(--bg-white);
+      text-decoration:none;
+      margin:0 10px;
+    }
+    footer a:hover {
+      text-decoration:underline;
+    }
+    /* 테이블 스타일 */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    .data-table th {
+      background-color: var(--secondary-color);
+      color: var(--bg-white);
+      font-weight: 600;
+    }
+    .data-table td {
+      background-color: var(--bg-white);
+    }
+    .data-table tr:nth-child(even) td {
+      background-color: var(--highlight-color);
+    }
+
+    /* 이미지 스타일 */
+    .img-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .img-section img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width:768px) {
+      .hero h1 { font-size:2.4em; }
+      .hero p { font-size:1.2em; }
+      .cta-btn { padding:15px 30px; font-size:1.1em; }
+      .compare-form-box { padding:25px; }
+      .content-section h2 { font-size:2.2em; }
+      .feature-grid .item { width:100%; margin:10px 0; }
+      .keyword-list li { margin:3px; font-size:0.9em; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="/">KT 인터넷 이전 설치 및 신규 가입 센터</a></h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>KT 인터넷 이전 설치, 신규 가입 혜택 총정리</h1>
+        <p>이사할 때 복잡한 인터넷 이전 설치, 신규 가입 절차를 쉽고 빠르게 비교하고<br>최대 현금 사은품 혜택까지 받아보세요.</p>
+        <div class="compare-form-box">
+          <h2>이사/설치 혜택 무료 견적 요청</h2>
+          <p>간단한 정보 입력으로 2026년 최신 KT 인터넷 가입 및 이전 설치 혜택을 비교해 드립니다.</p>
+          <form action="#" method="post">
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+            <label for="phone">연락처</label>
+            <input type="tel" id="phone" name="phone" placeholder="휴대폰 번호를 입력하세요" required>
+            <label for="movingDate">이사 예정일</label>
+            <input type="date" id="movingDate" name="movingDate" required>
+            <label for="serviceType">신규 가입 / 이전 설치 선택</label>
+            <select id="serviceType" name="serviceType" required>
+                <option value="">-- 선택하세요 --</option>
+                <option value="new">신규 가입 (KT 외 타사 이용 중)</option>
+                <option value="transfer">KT 회선 이전 설치</option>
+            </select>
+            <button type="submit" class="cta-btn">혜택 확인하고 견적 요청하기</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>왜 이사할 때 KT 인터넷을 선택해야 할까요?</h2>
+        <div class="feature-grid">
+          <div class="item">
+            <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="KT 인터넷 안정성 아이콘">
+            <h3>압도적인 안정성과 커버리지</h3>
+            <p>KT는 대한민국 전국망 커버리지를 보유하고 있어 도서 산간 지역까지 안정적인 품질을 보장합니다. 다른 통신사에 비해 이사 후 인터넷 끊김 현상이 적습니다.</p>
+          </div>
+          <div class="item">
+            <img src="https://images.pexels.com/photos/4386341/pexels-photo-4386341.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="KT 인터넷 초고속 아이콘">
+            <h3>빠른 속도와 다양한 상품</h3>
+            <p>100M, 500M, 1G(기가 인터넷) 등 다양한 속도 옵션을 제공합니다. 2026년 최신 기술로 10기가 인터넷까지 이용 가능하며, 초고속 인터넷 환경을 지원합니다.</p>
+          </div>
+          <div class="item">
+            <img src="https://images.pexels.com/photos/380769/pexels-photo-380769.jpeg?auto=compress&cs=tinysrgb&h=80&w=80" alt="KT 인터넷 결합 할인 아이콘">
+            <h3>파격적인 결합 할인 혜택</h3>
+            <p>KT 모바일, TV, 집전화 등 다양한 상품을 결합하여 가입하면 월 요금을 대폭 절감할 수 있습니다. 특히 이사 시 신규 가입 혜택이 가장 좋습니다.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:50px;">함께 많이 찾는 키워드</h3>
+        <ul class="keyword-list">
+          <li>#KT인터넷이전설치</li>
+          <li>#KT인터넷신규가입</li>
+          <li>#KT인터넷가격비교</li>
+          <li>#KT인터넷현금지원</li>
+          <li>#KT인터넷사은품</li>
+          <li>#KT인터넷설치비용</li>
+          <li>#KT인터넷결합할인</li>
+          <li>#KT인터넷후기</li>
+          <li>#KT인터넷전문업체</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>KT 인터넷 이전 설치 vs 신규 가입: 어떤 것이 유리할까요?</h2>
+        <p>이사할 때 많은 분이 고민하는 부분입니다. 기존에 KT를 사용하셨다면 '이전 설치'를, 타 통신사를 이용하셨다면 '신규 가입'을 고려해야 합니다. 각 선택지별 장단점을 비교하여 가장 유리한 방법을 선택하세요.</p>
+        <div class="img-section">
+            <img src="https://images.pexels.com/photos/5926360/pexels-photo-5926360.jpeg?auto=compress&cs=tinysrgb&h=627&w=1200" alt="컴퓨터와 스마트폰을 이용하는 이미지">
+            <p style="font-size:0.9em; color:#888;">초고속 인터넷은 이사 후 생활의 필수 요소입니다.</p>
+        </div>
+        <h3>1. KT 인터넷 이전 설치 (기존 KT 고객)</h3>
+        <p>KT를 이미 이용 중인 고객이 이사를 할 때 기존 회선을 새로운 주소로 옮기는 서비스입니다. 2026년 기준, 이전 설치는 신규 가입 대비 설치비가 저렴하거나 무료인 경우가 많지만, 현금 사은품 등 신규 혜택은 상대적으로 적습니다. 약정 기간이 남아있다면 위약금 없이 이전 설치가 가능합니다.</p>
+
+        <h3>2. KT 인터넷 신규 가입 (타사 이용 고객 또는 신규 고객)</h3>
+        <p>타사 인터넷을 이용하다가 KT로 신규 가입하는 경우입니다. 신규 가입 시에는 통신사 간 경쟁으로 인해 2026년 현재 최대 현금 사은품, 상품권 등 다양한 혜택을 받을 수 있습니다. 특히 이사 시점에 맞춰 신청하면 설치비 할인 프로모션도 받을 수 있어 `KT 인터넷 저렴한 곳`을 찾는 분들에게 가장 유리한 선택지입니다.</p>
+
+        <h3>KT 신규 가입 시 2026년 주요 혜택 비교표</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>서비스 종류</th>
+                    <th>요금제 예시 (3년 약정)</th>
+                    <th>평균 사은품 (현금/상품권)</th>
+                    <th>설치비 할인 여부</th>
+                    <th>추천 대상</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>KT 인터넷 + TV (슬림형)</td>
+                    <td>월 3만원대</td>
+                    <td>최대 40만원대</td>
+                    <td>신규 가입 시 면제/할인</td>
+                    <td>TV와 인터넷 동시 이용 고객</td>
+                </tr>
+                <tr>
+                    <td>KT 기가 인터넷 단독</td>
+                    <td>월 3만원 초반대</td>
+                    <td>최대 30만원대</td>
+                    <td>신규 가입 시 면제/할인</td>
+                    <td>인터넷 속도 중시 고객</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size:0.9em; color:#888;">*상기 사은품 금액은 2026년 3월 기준 통신사 및 대리점 프로모션에 따라 변동될 수 있습니다. 정확한 금액은 상담을 통해 확인하세요.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>KT 인터넷 이전 설치 절차 및 주의사항 (2026년 최신 정보)</h2>
+        <h3>1. 신청 전 체크리스트</h3>
+        <p>이사할 곳의 건물 환경(아파트, 빌라, 원룸 등)과 인터넷 설치 가능 여부를 미리 확인해야 합니다. 특히 최근 지어진 신축 아파트가 아닌 경우, 구형 건물이나 단독 주택은 광케이블(FTTH) 설치가 불가능할 수 있어 `KT 인터넷 이전`을 원해도 `KT 인터넷 설치`가 제한될 수 있습니다. 이 경우 비대칭 인터넷으로 속도가 느려질 수 있으니 꼭 확인이 필요합니다.</p>
+
+        <h3>2. 신청 방법</h3>
+        <p>가장 빠른 방법은 온라인 비교 사이트를 통한 신청입니다. 본사 상담이나 KT 고객센터(100번)를 통해서도 가능하지만, 온라인 대리점을 이용하면 `KT 인터넷 할인` 및 `현금지원` 혜택을 추가로 받을 수 있습니다.</p>
+
+        <h3>3. 설치 시 유의사항</h3>
+        <p>설치 기사 방문 시 기존에 사용하던 모뎀, 셋톱박스 등 장비를 반납하거나 새로운 장비를 설치해야 합니다. 공유기나 전화기 등 추가 장비 설치가 필요한 경우 미리 요청하여 `KT 인터넷 설치 비용`을 절감할 수 있는지 확인하세요. 이사 당일 `KT 인터넷 이전` 신청이 몰릴 경우 설치가 늦어질 수 있으므로, 최소 1주일 전 예약이 필수입니다.</p>
+
+        <h3>4. KT 인터넷 설치 시 지역별 특성 고려</h3>
+        <p>대한민국 전 지역에서 KT는 높은 인지도를 자랑하지만, 지역별로 설치 환경이 다를 수 있습니다. 특히 `서울 강남구`, `부산 해운대구`, `대구 수성구`, `인천 연수구`, `대전 유성구`, `광주 서구`, `울산 남구`와 같은 대도시 핵심 지역은 기가 인터넷 설치율이 높습니다. 반면 `수원시`, `고양시`, `용인시`, `성남시`, `화성시`, `청주시`, `천안시`, `전주시`, `포항시`, `창원시`, `제주도` 등 중소 도시와 외곽 지역에서는 설치 가능 여부를 사전에 꼼꼼히 체크해야 합니다. `KT 인터넷 이전 설치 후기`를 검색해보면 해당 지역의 서비스 품질을 간접적으로 확인할 수 있습니다.</p>
+
+        <p>이사철에는 `KT 인터넷 이전 설치` 수요가 급증하여 `KT 인터넷 설치 시간`이 지연될 수 있습니다. 주말이나 공휴일은 피해서 `KT 인터넷 가입`이나 `KT 인터넷 이전`을 신청하는 것이 `KT 인터넷 할인`을 받는 또 하나의 팁입니다.</p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+
+        <div class="faq-item">
+          <h3>Q1. KT 인터넷 이전 설치 시 위약금이 발생하나요?</h3>
+          <p>A1. KT 인터넷 약정 기간 내에 이전 설치를 하신다면 원칙적으로 위약금은 발생하지 않습니다. 다만, 이전 설치가 불가능한 지역으로 이사할 경우(서비스 미제공 지역)에는 위약금이 면제되거나 감면될 수 있습니다. 정확한 내용은 고객센터를 통해 확인해야 합니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Q2. KT 인터넷 신규 가입 시 현금 사은품은 얼마나 받을 수 있나요?</h3>
+          <p>A2. `KT 인터넷 신규 가입` 시 현금 사은품은 가입하는 요금제 종류(100M, 500M, 1G)와 결합 상품(TV, 모바일) 여부에 따라 달라집니다. 저희 비교 사이트를 이용하시면 `KT 인터넷 현금지원`을 최대로 받을 수 있는 `KT 인터넷 저렴한 곳`을 안내해 드립니다. 2026년 현재 평균적인 `KT 인터넷 사은품`은 30만원에서 50만원대 사이로 형성되어 있습니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Q3. KT 인터넷 이전 설치 후 속도가 느려지면 어떻게 해야 하나요?</h3>
+          <p>A3. `KT 인터넷 이전 설치` 후 속도가 느려졌다면 이사한 건물의 환경 때문일 가능성이 높습니다. 통신사 고객센터에 연락하여 설치 기사 재방문을 요청하고, 정확한 회선 점검을 받아야 합니다. 특히 신규 가입이 아닌 `KT 인터넷 이전 설치`의 경우 서비스 품질이 보장되는지 꼼꼼하게 확인하는 것이 중요합니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <h3>Q4. 이사 전에 KT 인터넷 이전 신청 시 어떤 정보를 준비해야 하나요?</h3>
+          <p>A4. 이사 날짜, 이사할 곳의 정확한 주소, 기존에 사용하던 KT 회선 번호, 그리고 본인 확인을 위한 정보가 필요합니다. 신규 가입의 경우 설치 주소와 신분증 정보만으로 `KT 인터넷 가입`이 가능합니다.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="container">
+        <h2>신뢰할 수 있는 외부 자료 및 참고 링크</h2>
+        <ul>
+          <li><a href="https://www.law.go.kr/lsInfoP.do?lsiSeq=183531&efYd=20170518#0000" target="_blank" rel="noopener">전기통신사업법 (인터넷 서비스 제공자 관련 법규)</a></li>
+          <li><a href="https://www.kcc.go.kr/user.do?mode=list&page=A0000001&dcid=1101000000000" target="_blank" rel="noopener">방송통신위원회 (통신 서비스 정책 및 분쟁 조정)</a></li>
+          <li><a href="https://ko.wikipedia.org/wiki/KT" target="_blank" rel="noopener">KT - 위키백과 (기업 정보 및 역사)</a></li>
+          <li><a href="https://www.msit.go.kr/web/main/main.do" target="_blank" rel="noopener">과학기술정보통신부 (정보통신 기술 정책 및 동향)</a></li>
+          <li><a href="https://www.nia.or.kr/site/nia/main.do" target="_blank" rel="noopener">한국지능정보사회진흥원 (KTF, SKT, LG U+ 인터넷 속도 측정 결과 등 제공)</a></li>
+        </ul>
+        <p>위 자료들은 통신 서비스의 법적 기준, 소비자 보호 규정, 통신사 서비스 품질 비교 등에 유용한 정보를 제공합니다. `KT 인터넷` 관련 공식 정보 및 `AI` 관련 최신 동향도 확인할 수 있습니다.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // FAQ 토글 기능
+    document.querySelectorAll('.faq-item h3').forEach(item => {
+      item.addEventListener('click', event => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
+  
